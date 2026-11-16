@@ -1,0 +1,24 @@
+# Este mundo inválido provoca 3 errores:
+# 1. V3: Una salida hacia una sala que no existe ('pasillo' tiene salida a 'dimension_desconocida').
+# 2. V8: La META hace referencia a una sala inexistente ('torre_fantasmal').
+# 3. V9: Una sala que no es alcanzable desde INICIO ('sala_aislada').
+
+MUNDO: Fortaleza Inconexa
+INICIO: entrada
+META: llegar a torre_fantasmal
+
+---
+SALA: entrada
+DESC: La entrada a la fortaleza.
+SALIDA: norte -> pasillo
+
+---
+SALA: pasillo
+DESC: Un pasillo oscuro con puertas rotas.
+SALIDA: sur -> entrada
+SALIDA: norte -> dimension_desconocida
+
+---
+SALA: sala_aislada
+DESC: Un sótano secreto sin accesos desde la entrada.
+SALIDA: este -> pasillo

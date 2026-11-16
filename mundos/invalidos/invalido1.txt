@@ -1,0 +1,47 @@
+# Este mundo inválido provoca 3 errores:
+# 1. Error de la variante: Receta que requiere un objeto inexistente ('mineral_raro').
+# 2. V5: Sala con dos salidas en la misma dirección ('patio' tiene dos salidas al norte).
+# 3. V10: Objeto necesario que no está en ninguna sala ni puede obtenerse por receta ('llave_maestra').
+
+MUNDO: Laboratorio con Receta Defectuosa
+INICIO: entrada
+META: llegar a laboratorio
+
+RECETA: cable + mineral_raro -> llave_maestra
+
+---
+OBJETO: cable
+DESC: Un simple cable.
+
+---
+OBJETO: llave_maestra
+DESC: Una llave legendaria.
+
+---
+SALA: entrada
+DESC: La entrada al recinto.
+SALIDA: norte -> patio
+OBJETO: cable
+
+---
+SALA: patio
+DESC: Un patio amplio.
+SALIDA: sur -> entrada
+SALIDA: norte -> laboratorio
+SALIDA: norte -> almacen
+
+---
+SALA: laboratorio
+DESC: El laboratorio de pruebas.
+SALIDA: sur -> patio
+SALIDA: este -> camara_sellada requiere llave_maestra
+
+---
+SALA: almacen
+DESC: Un almacén auxiliar.
+SALIDA: sur -> patio
+
+---
+SALA: camara_sellada
+DESC: Una cámara fuertemente custodiada.
+SALIDA: oeste -> laboratorio

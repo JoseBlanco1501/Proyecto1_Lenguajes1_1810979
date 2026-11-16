@@ -1,0 +1,19 @@
+tomar soldador
+norte
+este
+tomar cable_cobre
+oeste
+oeste
+tomar conector_rj45
+combinar cable_cobre con conector_rj45
+este
+norte
+tomar disco_duro
+combinar soldador con disco_duro
+norte
+este
+tomar chip_seguridad
+tomar tarjeta_blanco
+combinar chip_seguridad con tarjeta_blanco
+oeste
+norte

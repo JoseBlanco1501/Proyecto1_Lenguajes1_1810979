@@ -1,0 +1,105 @@
+# Mundo de aventura original para el Proyecto 1 (CI-3661)
+# Variante 3: Combinar
+# Carnet: 1810979
+
+MUNDO: El Rescate del Servidor de Sartenejas
+INICIO: entrada_laboratorios
+META: llevar informe_final a oficina_jefe
+
+RECETA: cable_cobre + conector_rj45 -> cable_red
+RECETA: chip_seguridad + tarjeta_blanco -> tarjeta_acceso
+RECETA: soldador + disco_duro -> informe_final
+
+---
+OBJETO: soldador
+DESC: Un cautín de precisión aún caliente por el uso reciente.
+
+---
+OBJETO: cable_cobre
+DESC: Un tramo de cable UTP sin conectores en los extremos.
+
+---
+OBJETO: conector_rj45
+DESC: Un conector plástico transparente listo para crimpar.
+
+---
+OBJETO: cable_red
+DESC: Un cable Ethernet funcional ensamblado con esmero.
+
+---
+OBJETO: disco_duro
+DESC: Un disco rígido que contiene los datos recuperados del servidor.
+
+---
+OBJETO: chip_seguridad
+DESC: Un microchip criptográfico que autoriza el acceso administrativo.
+
+---
+OBJETO: tarjeta_blanco
+DESC: Una tarjeta magnética virgen sin codificar.
+
+---
+OBJETO: tarjeta_acceso
+DESC: Una credencial magnética de nivel maestro.
+
+---
+OBJETO: informe_final
+DESC: El reporte impreso y firmado que certifica la recuperación del sistema.
+
+---
+SALA: entrada_laboratorios
+DESC: El vestíbulo de entrada al complejo de laboratorios de computación.
+SALIDA: norte -> pasillo_central
+OBJETO: soldador
+
+---
+SALA: pasillo_central
+DESC: Un pasillo iluminado con tubos fluorescentes que zumban suavemente.
+SALIDA: sur -> entrada_laboratorios
+SALIDA: este -> taller_electronica
+SALIDA: oeste -> laboratorio_redes
+SALIDA: norte -> servidor_antiguo
+
+---
+SALA: taller_electronica
+DESC: Mesones llenos de osciloscopios, componentes y herramientas.
+SALIDA: oeste -> pasillo_central
+SALIDA: norte -> terraza_descanso
+OBJETO: cable_cobre
+
+---
+SALA: laboratorio_redes
+DESC: Racks con switches y routers interconectados por cables de colores.
+SALIDA: este -> pasillo_central
+OBJETO: conector_rj45
+
+---
+SALA: servidor_antiguo
+DESC: Una sala fría con un gabinete principal que tiene un puerto de red suelto.
+SALIDA: sur -> pasillo_central
+SALIDA: norte -> centro_computo requiere cable_red
+OBJETO: disco_duro
+
+---
+SALA: centro_computo
+DESC: La sala principal de servidores. Las luces de actividad parpadean rápidamente.
+SALIDA: sur -> servidor_antiguo
+SALIDA: este -> oficina_soporte
+SALIDA: norte -> oficina_jefe requiere tarjeta_acceso
+
+---
+SALA: oficina_soporte
+DESC: Un cubículo con manuales de administración y repuestos varios.
+SALIDA: oeste -> centro_computo
+OBJETO: chip_seguridad
+OBJETO: tarjeta_blanco
+
+---
+SALA: terraza_descanso
+DESC: Un pequeño balcón al aire libre con vista a las montañas de Sartenejas.
+SALIDA: sur -> taller_electronica
+
+---
+SALA: oficina_jefe
+DESC: La oficina del director del centro de cómputo.
+SALIDA: sur -> centro_computo

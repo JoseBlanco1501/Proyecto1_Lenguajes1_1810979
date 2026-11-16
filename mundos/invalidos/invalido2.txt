@@ -1,0 +1,42 @@
+# Este mundo inválido provoca 3 errores:
+# 1. V2: Dos salas con el mismo identificador ('sala_duplicada').
+# 2. V6: Sala que contiene un objeto no definido ('objeto_inexistente' en 'pasillo').
+# 3. V7: Un objeto colocado en más de una sala ('pocion' colocada en 'entrada' y en 'pasillo').
+
+MUNDO: Mansion con Duplicados
+INICIO: entrada
+META: llegar a jardin
+
+---
+OBJETO: pocion
+DESC: Un brebaje mágico.
+
+---
+SALA: entrada
+DESC: El hall de la mansión.
+SALIDA: norte -> pasillo
+SALIDA: este -> sala_duplicada
+OBJETO: pocion
+
+---
+SALA: pasillo
+DESC: Un pasillo con cuadros antiguos.
+SALIDA: sur -> entrada
+SALIDA: norte -> jardin
+OBJETO: pocion
+OBJETO: objeto_inexistente
+
+---
+SALA: jardin
+DESC: Un jardín bien cuidado.
+SALIDA: sur -> pasillo
+
+---
+SALA: sala_duplicada
+DESC: Primera versión de la sala.
+SALIDA: sur -> entrada
+
+---
+SALA: sala_duplicada
+DESC: Segunda versión de la sala con el mismo id.
+SALIDA: sur -> entrada
