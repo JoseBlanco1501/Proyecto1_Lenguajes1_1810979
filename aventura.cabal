@@ -1,0 +1,45 @@
+cabal-version:       2.4
+name:                aventura
+version:             0.1.0.0
+synopsis:            Motor de aventuras de texto en Haskell
+author:              1810979
+maintainer:          1810979@usb.ve
+build-type:          Simple
+
+library
+  exposed-modules:     Motor.Tipos
+                     , Motor.Reconocedor
+                     , Motor.Mundo
+                     , Motor.Comandos
+                     , Motor.Nucleo
+                     , Motor.Persistencia
+  build-depends:       base >= 4.14 && < 5
+                     , containers >= 0.6
+                     , directory >= 1.3
+                     , filepath >= 1.4
+  hs-source-dirs:      src
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+
+executable aventura
+  main-is:             Main.hs
+  build-depends:       base >= 4.14 && < 5
+                     , containers >= 0.6
+                     , directory >= 1.3
+                     , filepath >= 1.4
+                     , aventura
+  hs-source-dirs:      app
+  default-language:    Haskell2010
+  ghc-options:         -Wall
+
+test-suite aventura-test
+  type:                exitcode-stdio-1.0
+  main-is:             Spec.hs
+  build-depends:       base >= 4.14 && < 5
+                     , containers >= 0.6
+                     , directory >= 1.3
+                     , filepath >= 1.4
+                     , aventura
+  hs-source-dirs:      test
+  default-language:    Haskell2010
+  ghc-options:         -Wall

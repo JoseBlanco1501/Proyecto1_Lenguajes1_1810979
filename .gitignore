@@ -1,0 +1,26 @@
+# Haskell / Cabal / Stack build artifacts
+dist/
+dist-*
+dist-newstyle/
+.stack-work/
+*.o
+*.hi
+*.dyn_o
+*.dyn_hi
+*.exe
+*.log
+*.tix
+.hpc/
+
+# Material y diapositivas de clase
+CodigosVistosEnClases/
+Láminas_clases/
+L*minas_clases/
+
+# Archivos de sistema y editores
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*~
+*.swp
