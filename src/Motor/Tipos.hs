@@ -152,38 +152,38 @@ data ErrorMundo
   | ErrorRecetaObjetoInexistente Receta IdObjeto
   deriving (Eq, Show)
 
--- | Convierte un ErrorMundo a mensaje con prefijo 'Error: '.
+-- | Convierte un ErrorMundo a mensaje con prefijo 'Error: [Vx] ' según la sección 4 del enunciado.
 mostrarError :: ErrorMundo -> String
 mostrarError err = case err of
   ErrorSintaxis linea detalle ->
-    "Error: Línea " ++ show linea ++ ": " ++ detalle
+    "Error: [V1] Línea " ++ show linea ++ ": " ++ detalle
   ErrorIdDuplicado tipo idNom ->
-    "Error: Identificador de " ++ tipo ++ " duplicado: '" ++ idNom ++ "'."
+    "Error: [V2] Identificador de " ++ tipo ++ " duplicado: '" ++ idNom ++ "'."
   ErrorSalidaInexistente origen dir destino ->
-    "Error: La sala '" ++ unIdSala origen ++ "' tiene salida al "
+    "Error: [V3] La sala '" ++ unIdSala origen ++ "' tiene salida al "
     ++ mostrarDireccion dir ++ " hacia la sala inexistente '" ++ unIdSala destino ++ "'."
   ErrorSalidaReqInexistente origen dir obj ->
-    "Error: La salida al " ++ mostrarDireccion dir ++ " en '" ++ unIdSala origen
+    "Error: [V4] La salida al " ++ mostrarDireccion dir ++ " en '" ++ unIdSala origen
     ++ "' requiere el objeto inexistente '" ++ unIdObjeto obj ++ "'."
   ErrorSalidasDuplicadas sala dir ->
-    "Error: La sala '" ++ unIdSala sala ++ "' tiene más de una salida hacia el "
+    "Error: [V5] La sala '" ++ unIdSala sala ++ "' tiene más de una salida hacia el "
     ++ mostrarDireccion dir ++ "."
   ErrorObjetoNoDefinido sala obj ->
-    "Error: La sala '" ++ unIdSala sala ++ "' contiene el objeto no definido '"
+    "Error: [V6] La sala '" ++ unIdSala sala ++ "' contiene el objeto no definido '"
     ++ unIdObjeto obj ++ "'."
   ErrorObjetoMultiplesSalas obj salas ->
-    "Error: El objeto '" ++ unIdObjeto obj
+    "Error: [V7] El objeto '" ++ unIdObjeto obj
     ++ "' está colocado en múltiples salas (o repetido): "
     ++ unwords (map unIdSala salas) ++ "."
   ErrorInicioInexistente sala ->
-    "Error: La sala de INICIO '" ++ unIdSala sala ++ "' no existe."
+    "Error: [V8] La sala de INICIO '" ++ unIdSala sala ++ "' no existe."
   ErrorMetaInexistente detalle ->
-    "Error: La META hace referencia a un elemento inexistente: " ++ detalle ++ "."
+    "Error: [V8] La META hace referencia a un elemento inexistente: " ++ detalle ++ "."
   ErrorSalaInalcanzable sala ->
-    "Error: La sala '" ++ unIdSala sala ++ "' no es alcanzable desde INICIO."
+    "Error: [V9] La sala '" ++ unIdSala sala ++ "' no es alcanzable desde INICIO."
   ErrorObjetoInalcanzable obj ->
-    "Error: El objeto '" ++ unIdObjeto obj
+    "Error: [V10] El objeto '" ++ unIdObjeto obj
     ++ "' es necesario para la meta o salidas pero no está en ninguna sala ni puede obtenerse por receta."
   ErrorRecetaObjetoInexistente (Receta a b c) obj ->
-    "Error: La receta '" ++ unIdObjeto a ++ " + " ++ unIdObjeto b ++ " -> " ++ unIdObjeto c
+    "Error: [Variante] La receta '" ++ unIdObjeto a ++ " + " ++ unIdObjeto b ++ " -> " ++ unIdObjeto c
     ++ "' requiere el objeto inexistente '" ++ unIdObjeto obj ++ "'."
