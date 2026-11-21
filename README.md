@@ -43,10 +43,6 @@ cabal build
 ### Validar un archivo de mundo
 Valida la sintaxis (V1) y la semántica completa (V2–V10) reportando todos los errores juntos o confirmando validez:
 ```bash
-cabal run aventura -- -validar material/mundos/entrega.txt
-```
-O con mundos propios:
-```bash
 cabal run aventura -- -validar mundos/mundo.txt
 ```
 
@@ -58,10 +54,7 @@ cabal run aventura -- mundos/mundo.txt
 ### Jugar con entrada redirigida (guion)
 Permite correr un guion automático de comandos hasta ganar o alcanzar el fin de archivo (EOF):
 ```bash
-# Mundo y guion de ejemplo del curso:
-cabal run aventura -- material/mundos/entrega.txt < material/guiones/entrega.txt
-
-# Mundo propio y guion propio:
+# Mundo y guion:
 cabal run aventura -- mundos/mundo.txt < guiones/mundo.txt
 ```
 
